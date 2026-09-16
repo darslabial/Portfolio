@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="qBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#19040d" />
+      <stop offset="50%" stop-color="#2a0919" />
+      <stop offset="100%" stop-color="#120309" />
+    </linearGradient>
+    <linearGradient id="qCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#381023" />
+      <stop offset="100%" stop-color="#1f0714" />
+    </linearGradient>
+    <linearGradient id="qDisplayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14030a" />
+      <stop offset="100%" stop-color="#0d0206" />
+    </linearGradient>
+    <linearGradient id="qRubyBtn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e62857" />
+      <stop offset="100%" stop-color="#991236" />
+    </linearGradient>
+    <linearGradient id="qEmeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06d6a0" />
+      <stop offset="100%" stop-color="#028060" />
+    </linearGradient>
+    <linearGradient id="qVueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#42b883" />
+      <stop offset="100%" stop-color="#35495e" />
+    </linearGradient>
+    <linearGradient id="qLaravelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2d20" />
+      <stop offset="100%" stop-color="#b81d13" />
+    </linearGradient>
+    <filter id="qShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="6" stdDeviation="7" flood-color="#000" flood-opacity="0.7" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#qBg)" />
+
+  <!-- Top Navigation / Status Bar -->
+  <g filter="url(#qShadow)">
+    <rect x="25" y="18" width="750" height="56" rx="14" fill="url(#qCardGrad)" stroke="rgba(255,100,140,0.18)" stroke-width="1.2" />
+    
+    <!-- System Title -->
+    <circle cx="50" cy="46" r="8" fill="#e62857" />
+    <circle cx="50" cy="46" r="4" fill="#fff" />
+    <text x="70" y="51" font-family="'Outfit', sans-serif" font-size="17" font-weight="800" fill="#ffffff" letter-spacing="0.5">SMART QUEUE MANAGEMENT SYSTEM</text>
+    
+    <!-- Badges -->
+    <rect x="490" y="32" width="105" height="28" rx="7" fill="url(#qLaravelGrad)" />
+    <text x="542" y="50" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">PHP LARAVEL</text>
+
+    <rect x="605" y="32" width="95" height="28" rx="7" fill="url(#qVueGrad)" />
+    <text x="652" y="50" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">VUE / NUXT</text>
+
+    <rect x="710" y="32" width="55" height="28" rx="7" fill="#2d0d1b" stroke="rgba(255,100,140,0.25)" />
+    <text x="737" y="50" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="var(--accent-rose, #ff4d7a)" text-anchor="middle">GITEA</text>
+  </g>
+
+  <!-- Main Display Screen: NOW SERVING (Big Monitor Style) -->
+  <g filter="url(#qShadow)">
+    <rect x="25" y="90" width="460" height="255" rx="18" fill="url(#qDisplayGrad)" stroke="rgba(255,77,122,0.3)" stroke-width="1.5" />
+    
+    <!-- Monitor Header -->
+    <rect x="25" y="90" width="460" height="42" rx="18 18 0 0" fill="#230715" />
+    <circle cx="50" cy="111" r="5" fill="#06d6a0" />
+    <text x="64" y="116" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#06d6a0" letter-spacing="1">LIVE PUBLIC CALL DISPLAY · STATION 01</text>
+    
+    <!-- Primary Ticket Box -->
+    <rect x="50" y="148" width="410" height="175" rx="14" fill="#18040e" stroke="rgba(230,40,87,0.25)" />
+    <text x="255" y="178" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" fill="#c9a7b0" text-anchor="middle" letter-spacing="2">NOW SERVING</text>
+    
+    <!-- Giant Glowing Number -->
+    <text x="255" y="255" font-family="'JetBrains Mono', monospace" font-size="76" font-weight="900" fill="#ffd166" text-anchor="middle" filter="drop-shadow(0 0 12px rgba(255,209,102,0.45))">Q-108</text>
+    
+    <!-- Assigned Window -->
+    <rect x="145" y="280" width="220" height="30" rx="8" fill="url(#qRubyBtn)" />
+    <text x="255" y="300" font-family="'Outfit', sans-serif" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">PROCEED TO COUNTER 02</text>
+  </g>
+
+  <!-- Side Panel: Counter Windows & Calling List -->
+  <g filter="url(#qShadow)">
+    <rect x="505" y="90" width="270" height="255" rx="18" fill="url(#qCardGrad)" stroke="rgba(255,100,140,0.18)" stroke-width="1.2" />
+    
+    <!-- Header -->
+    <text x="525" y="120" font-family="'Outfit', sans-serif" font-size="15" font-weight="800" fill="#fff">COUNTER STATUS</text>
+    <rect x="710" y="106" width="50" height="20" rx="6" fill="rgba(6,214,160,0.15)" stroke="#06d6a0" stroke-width="0.8" />
+    <text x="735" y="120" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#06d6a0" text-anchor="middle">ACTIVE</text>
+
+    <!-- Counter Row 1 -->
+    <rect x="525" y="138" width="230" height="42" rx="10" fill="#18040e" stroke="rgba(255,100,140,0.12)" />
+    <text x="540" y="164" font-family="'Outfit', sans-serif" font-size="13" font-weight="700" fill="#fff">Counter 01</text>
+    <text x="690" y="164" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="800" fill="#06d6a0">A-042</text>
+
+    <!-- Counter Row 2 (Active) -->
+    <rect x="525" y="188" width="230" height="42" rx="10" fill="#2d0a1b" stroke="rgba(230,40,87,0.4)" />
+    <circle cx="538" cy="209" r="4" fill="#e62857" />
+    <text x="550" y="214" font-family="'Outfit', sans-serif" font-size="13" font-weight="700" fill="#fff">Counter 02</text>
+    <text x="690" y="214" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="800" fill="#ffd166">Q-108</text>
+
+    <!-- Counter Row 3 -->
+    <rect x="525" y="238" width="230" height="42" rx="10" fill="#18040e" stroke="rgba(255,100,140,0.12)" />
+    <text x="540" y="264" font-family="'Outfit', sans-serif" font-size="13" font-weight="700" fill="#fff">Counter 03</text>
+    <text x="690" y="264" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="800" fill="#06d6a0">B-015</text>
+
+    <!-- Counter Row 4 -->
+    <rect x="525" y="288" width="230" height="42" rx="10" fill="#18040e" stroke="rgba(255,100,140,0.12)" />
+    <text x="540" y="314" font-family="'Outfit', sans-serif" font-size="13" font-weight="700" fill="#fff">Counter 04</text>
+    <text x="690" y="314" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#a0808b">IDLE</text>
+  </g>
+
+  <!-- Bottom Real-time Analytics Bar -->
+  <g filter="url(#qShadow)">
+    <rect x="25" y="360" width="750" height="70" rx="16" fill="url(#qCardGrad)" stroke="rgba(255,100,140,0.18)" stroke-width="1.2" />
+    
+    <!-- Metric 1 -->
+    <g transform="translate(60, 378)">
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#c9a7b0">WAITING IN QUEUE</text>
+      <text x="0" y="38" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="800" fill="#ffffff">14 Citizens</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="220" y1="375" x2="220" y2="415" stroke="rgba(255,100,140,0.15)" stroke-width="1" />
+
+    <!-- Metric 2 -->
+    <g transform="translate(250, 378)">
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#c9a7b0">AVG SERVICE TIME</text>
+      <text x="0" y="38" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="800" fill="#06d6a0">3.8 mins</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="420" y1="375" x2="420" y2="415" stroke="rgba(255,100,140,0.15)" stroke-width="1" />
+
+    <!-- Metric 3 -->
+    <g transform="translate(450, 378)">
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#c9a7b0">TOTAL SERVED TODAY</text>
+      <text x="0" y="38" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="800" fill="#ffd166">192 Tickets</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="620" y1="375" x2="620" y2="415" stroke="rgba(255,100,140,0.15)" stroke-width="1" />
+
+    <!-- Metric 4: Websocket Ping -->
+    <g transform="translate(645, 378)">
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#c9a7b0">SOCKET SYNC</text>
+      <text x="0" y="38" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="800" fill="#06d6a0">● 18ms Realtime</text>
+    </g>
+  </g>
+</svg>

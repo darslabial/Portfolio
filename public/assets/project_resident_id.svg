@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#19040d" />
+      <stop offset="50%" stop-color="#2a0919" />
+      <stop offset="100%" stop-color="#120309" />
+    </linearGradient>
+    <linearGradient id="rCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#381023" />
+      <stop offset="100%" stop-color="#1f0714" />
+    </linearGradient>
+    <linearGradient id="rIdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c0919" />
+      <stop offset="50%" stop-color="#401026" />
+      <stop offset="100%" stop-color="#18030d" />
+    </linearGradient>
+    <linearGradient id="rRubyBtn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e62857" />
+      <stop offset="100%" stop-color="#991236" />
+    </linearGradient>
+    <linearGradient id="rGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd166" />
+      <stop offset="100%" stop-color="#d49e1e" />
+    </linearGradient>
+    <linearGradient id="rLaravelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2d20" />
+      <stop offset="100%" stop-color="#b81d13" />
+    </linearGradient>
+    <linearGradient id="rVueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#42b883" />
+      <stop offset="100%" stop-color="#35495e" />
+    </linearGradient>
+    <filter id="rShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="6" stdDeviation="7" flood-color="#000" flood-opacity="0.7" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#rBg)" />
+
+  <!-- Top Navigation / Title -->
+  <g filter="url(#rShadow)">
+    <rect x="25" y="18" width="750" height="56" rx="14" fill="url(#rCardGrad)" stroke="rgba(255,100,140,0.18)" stroke-width="1.2" />
+    
+    <circle cx="50" cy="46" r="8" fill="#e62857" />
+    <circle cx="50" cy="46" r="4" fill="#fff" />
+    <text x="70" y="51" font-family="'Outfit', sans-serif" font-size="17" font-weight="800" fill="#ffffff" letter-spacing="0.5">RESIDENT ID &amp; CITIZEN REGISTRY SYSTEM</text>
+    
+    <rect x="490" y="32" width="105" height="28" rx="7" fill="url(#rLaravelGrad)" />
+    <text x="542" y="50" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">PHP LARAVEL</text>
+
+    <rect x="605" y="32" width="95" height="28" rx="7" fill="url(#rVueGrad)" />
+    <text x="652" y="50" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">VUE / NUXT</text>
+
+    <rect x="710" y="32" width="55" height="28" rx="7" fill="#2d0d1b" stroke="rgba(255,100,140,0.25)" />
+    <text x="737" y="50" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="var(--accent-rose, #ff4d7a)" text-anchor="middle">GITEA</text>
+  </g>
+
+  <!-- Left: Digital Resident ID Card (Smart Card Mockup) -->
+  <g filter="url(#rShadow)">
+    <!-- ID Card Container -->
+    <rect x="25" y="90" width="375" height="235" rx="18" fill="url(#rIdGrad)" stroke="rgba(255,120,160,0.3)" stroke-width="1.5" />
+    
+    <!-- Header stripe -->
+    <rect x="25" y="90" width="375" height="42" rx="18 18 0 0" fill="#4d1228" />
+    <circle cx="48" cy="111" r="10" fill="url(#rGoldGrad)" />
+    <text x="48" y="115" font-family="'Outfit', sans-serif" font-size="9" font-weight="900" fill="#18040d" text-anchor="middle">REPUBLIC</text>
+    <text x="68" y="111" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" fill="#fff">BARANGAY CITIZEN ID</text>
+    <text x="68" y="123" font-family="'JetBrains Mono', monospace" font-size="8" fill="#ffd166">OFFICIAL RESIDENT IDENTIFICATION</text>
+
+    <!-- Smart Chip -->
+    <rect x="50" y="145" width="42" height="32" rx="6" fill="url(#rGoldGrad)" stroke="#b8830f" stroke-width="1" />
+    <line x1="50" y1="161" x2="92" y2="161" stroke="#946506" stroke-width="0.8" />
+    <line x1="71" y1="145" x2="71" y2="177" stroke="#946506" stroke-width="0.8" />
+
+    <!-- Resident Photo Silhouette Frame -->
+    <rect x="50" y="188" width="70" height="85" rx="8" fill="#16030c" stroke="rgba(255,100,140,0.25)" />
+    <circle cx="85" cy="216" r="16" fill="#e62857" opacity="0.75" />
+    <path d="M 65 265 Q 85 240 105 265" fill="#e62857" opacity="0.75" />
+
+    <!-- Resident Information Text -->
+    <g transform="translate(135, 150)">
+      <text x="0" y="12" font-family="'Outfit', sans-serif" font-size="14" font-weight="800" fill="#ffffff">JUAN C. DELA CRUZ</text>
+      <text x="0" y="27" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#ffd166">ID NO: RES-2025-08492</text>
+
+      <text x="0" y="46" font-family="'Outfit', sans-serif" font-size="9" fill="#c9a7b0">ADDRESS / PUROK:</text>
+      <text x="0" y="58" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#fff">Purok 3, Poblacion Central</text>
+
+      <text x="0" y="76" font-family="'Outfit', sans-serif" font-size="9" fill="#c9a7b0">DATE OF BIRTH / GENDER:</text>
+      <text x="0" y="88" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#fff">14 May 1999 · Male</text>
+
+      <text x="0" y="106" font-family="'Outfit', sans-serif" font-size="9" fill="#c9a7b0">STATUS:</text>
+      <text x="50" y="106" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="800" fill="#06d6a0">● VERIFIED CITIZEN</text>
+    </g>
+
+    <!-- QR Code & Barcode Graphic -->
+    <g transform="translate(325, 240)">
+      <!-- Simulated QR Pattern -->
+      <rect x="0" y="0" width="55" height="55" rx="4" fill="#fff" />
+      <rect x="5" y="5" width="14" height="14" fill="#000" />
+      <rect x="36" y="5" width="14" height="14" fill="#000" />
+      <rect x="5" y="36" width="14" height="14" fill="#000" />
+      <rect x="23" y="15" width="8" height="24" fill="#000" />
+      <rect x="23" y="28" width="22" height="6" fill="#000" />
+      <rect x="36" y="38" width="10" height="10" fill="#000" />
+    </g>
+    <text x="50" y="305" font-family="'JetBrains Mono', monospace" font-size="8" fill="#a07d8b">ISSUED: 2025-01-10 · EXPIRY: 2028-01-10 · BARANGAY SECRETARIAT</text>
+  </g>
+
+  <!-- Right: Census Registry & Clearance Administration Portal -->
+  <g filter="url(#rShadow)">
+    <rect x="420" y="90" width="355" height="235" rx="18" fill="url(#rCardGrad)" stroke="rgba(255,100,140,0.18)" stroke-width="1.2" />
+    
+    <!-- Header -->
+    <text x="442" y="120" font-family="'Outfit', sans-serif" font-size="15" font-weight="800" fill="#fff">CITIZEN DIRECTORY &amp; CLEARANCE</text>
+    
+    <!-- Search Bar Mockup -->
+    <rect x="442" y="134" width="310" height="30" rx="8" fill="#18040e" stroke="rgba(255,100,140,0.15)" />
+    <text x="456" y="153" font-family="'Outfit', sans-serif" font-size="11" fill="#8f6e7a">🔍 Search by name, ID number, or Purok...</text>
+
+    <!-- Table Header -->
+    <rect x="442" y="174" width="310" height="22" rx="4" fill="#2d0a1b" />
+    <text x="452" y="189" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#ffd166">CITIZEN NAME</text>
+    <text x="585" y="189" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#ffd166">PUROK</text>
+    <text x="670" y="189" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#ffd166">ACTION</text>
+
+    <!-- Row 1 -->
+    <rect x="442" y="202" width="310" height="34" rx="6" fill="#18040e" stroke="rgba(255,100,140,0.08)" />
+    <text x="452" y="222" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#fff">Juan C. Dela Cruz</text>
+    <text x="585" y="222" font-family="'Outfit', sans-serif" font-size="11" fill="#c9a7b0">Purok 3</text>
+    <rect x="670" y="209" width="68" height="20" rx="5" fill="url(#rRubyBtn)" />
+    <text x="704" y="223" font-family="'Outfit', sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Print ID</text>
+
+    <!-- Row 2 -->
+    <rect x="442" y="242" width="310" height="34" rx="6" fill="#18040e" stroke="rgba(255,100,140,0.08)" />
+    <text x="452" y="262" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#fff">Maria S. Santos</text>
+    <text x="585" y="262" font-family="'Outfit', sans-serif" font-size="11" fill="#c9a7b0">Purok 1</text>
+    <rect x="670" y="249" width="68" height="20" rx="5" fill="#06d6a0" />
+    <text x="704" y="263" font-family="'Outfit', sans-serif" font-size="9" font-weight="700" fill="#120309" text-anchor="middle">Clearance</text>
+
+    <!-- Row 3 -->
+    <rect x="442" y="282" width="310" height="34" rx="6" fill="#18040e" stroke="rgba(255,100,140,0.08)" />
+    <text x="452" y="302" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#fff">Antonio R. Perez</text>
+    <text x="585" y="302" font-family="'Outfit', sans-serif" font-size="11" fill="#c9a7b0">Purok 5</text>
+    <rect x="670" y="289" width="68" height="20" rx="5" fill="url(#rRubyBtn)" />
+    <text x="704" y="303" font-family="'Outfit', sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Print ID</text>
+  </g>
+
+  <!-- Bottom Analytics & Security Bar -->
+  <g filter="url(#rShadow)">
+    <rect x="25" y="345" width="750" height="85" rx="16" fill="url(#rCardGrad)" stroke="rgba(255,100,140,0.18)" stroke-width="1.2" />
+    
+    <g transform="translate(55, 365)">
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#c9a7b0">REGISTERED CITIZENS</text>
+      <text x="0" y="38" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="800" fill="#ffffff">3,420 Residents</text>
+    </g>
+
+    <line x1="225" y1="362" x2="225" y2="415" stroke="rgba(255,100,140,0.15)" stroke-width="1" />
+
+    <g transform="translate(255, 365)">
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#c9a7b0">ISSUED DIGITAL IDs</text>
+      <text x="0" y="38" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="800" fill="#06d6a0">2,890 Cards</text>
+    </g>
+
+    <line x1="415" y1="362" x2="415" y2="415" stroke="rgba(255,100,140,0.15)" stroke-width="1" />
+
+    <g transform="translate(445, 365)">
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#c9a7b0">CLEARANCE REQUESTS</text>
+      <text x="0" y="38" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="800" fill="#ffd166">145 Today</text>
+    </g>
+
+    <line x1="605" y1="362" x2="605" y2="415" stroke="rgba(255,100,140,0.15)" stroke-width="1" />
+
+    <g transform="translate(630, 365)">
+      <text x="0" y="14" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#c9a7b0">DATABASE ENCRYPTION</text>
+      <text x="0" y="38" font-family="'JetBrains Mono', monospace" font-size="17" font-weight="800" fill="#06d6a0">AES-256 / SHA-256</text>
+    </g>
+  </g>
+</svg>

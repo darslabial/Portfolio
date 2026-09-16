@@ -1,0 +1,151 @@
+@import './styles/claymorphism.css';
+
+/* Base & Global Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-darkest);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Deep Ambient Background Mesh */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(156, 21, 53, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(230, 40, 87, 0.16) 0%, transparent 40%),
+    radial-gradient(circle at 50% 70%, rgba(120, 10, 40, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 90%, rgba(181, 23, 158, 0.12) 0%, transparent 40%),
+    linear-gradient(180deg, #0a0205 0%, #120409 50%, #0a0205 100%);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Subtle Film Texture Overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 28px 28px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Custom Wine-Red Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0206;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #571325 0%, #2f0a14 100%);
+  border-radius: 9999px;
+  border: 2px solid #0d0206;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #9c1535 0%, #4a0d1d 100%);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+/* Responsive Container */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-wrapper {
+  padding: 6.5rem 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: 4.5rem 0;
+  }
+}
+
+/* Section Header Component */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-rose);
+  background: rgba(230, 40, 87, 0.1);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(230, 40, 87, 0.25);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
