@@ -25,3 +25,6 @@ dist-ssr
 
 # Generated temporary assets
 Gemini_Generated_Image_*.jpg
+
+# Vercel
+.vercel
