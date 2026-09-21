@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowUp, Heart, Code2, Clock } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowUp, Clock } from 'lucide-react';
 import { personalInfo } from '../../data/portfolioData';
-import { audioFeedback } from '../../utils/audioFeedback';
 import { GithubIcon, FacebookIcon } from '../common/SocialIcons';
 
 export default function Footer() {
@@ -25,7 +24,6 @@ export default function Footer() {
   }, []);
 
   const scrollToTop = () => {
-    audioFeedback.playPress();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -39,7 +37,7 @@ export default function Footer() {
         position: 'relative'
       }}
     >
-      <div className="container">
+      <div className="container reveal-on-scroll">
         <div
           style={{
             display: 'flex',
@@ -120,7 +118,6 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Facebook: DAreal4ryl"
-                onClick={() => audioFeedback.playPop()}
                 className="clay-card-inset"
                 style={{
                   width: '36px',
@@ -150,7 +147,6 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="GitHub: LabialDaryl"
-                onClick={() => audioFeedback.playPop()}
                 className="clay-card-inset"
                 style={{
                   width: '36px',
@@ -211,9 +207,6 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {personalInfo.name} {personalInfo.surname}. All rights reserved.
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-            <span>Engineered with React, Tactile Claymorphism &amp; Care</span>
-          </div>
         </div>
       </div>
     </footer>

@@ -2,10 +2,10 @@ export const personalInfo = {
   name: "Daryl C.",
   surname: "Labial",
   githubHandle: "LabialDaryl",
-  title: "Computer Engineering Student | OJT & Systems Developer",
+  title: "Computer Engineering Student | Application, Website and Systems Software Developer",
   roleTag: "Computer Engineering Student · NEMSU Cantilan",
-  location: "Carrascal, Surigao del Sur, Philippines",
-  availability: "Actively Seeking Internship / OJT Opportunities",
+  location: "Adlay, Carrascal, Surigao del Sur, Philippines",
+  availability: "Actively Seeking IT related Jobs / Computer Engineering Opportunities",
   email: "daryllabial1@gmail.com",
   phone: "+63 946 103 2379",
   githubUrl: "https://github.com/LabialDaryl",
@@ -15,10 +15,9 @@ export const personalInfo = {
   bio: "Detail-oriented Computer Engineering student at North Eastern Mindanao State University (NEMSU – Cantilan Campus) with a solid foundation in full-stack software development (PHP Laravel, Vue/Nuxt, Django, Python), computer networking, embedded systems, and relational database management. Eager to apply academic training and hands-on project experience in software engineering, embedded systems, or systems administration.",
   avatar: "/assets/daryl_profile.jpg",
   stats: [
-    { label: "Degree", value: "BSCpE" },
-    { label: "Course Period", value: "2023–Present" },
+    { label: "Degree", value: "Bachelor of Science in Computer Engineering" },
     { label: "Repositories", value: "12+" },
-    { label: "Target", value: "OJT / Intern" }
+    { label: "Target", value: "IT related Jobs / Computer Engineering Opportunities" }
   ],
   education: {
     degree: "Bachelor of Science in Computer Engineering",
@@ -243,7 +242,19 @@ export const projectsData = [
 
 export const experienceData = [
   {
-    role: "Computer Engineering Student & OJT Candidate",
+    role: "Software Development Intern (OJT)",
+    company: "INFOSOFT",
+    period: "Completed",
+    location: "Matina, Davao City",
+    description: "Successfully completed on-the-job training (OJT) within the Software Development Department. Contributed to real-world software engineering workflows, application development, codebase maintenance, and professional problem solving within an active IT company environment.",
+    highlights: [
+      "Assigned to the Software Development Department, collaborating on practical application features, testing, and system maintenance.",
+      "Gained hands-on industry experience with professional development standards, team collaboration, and structured engineering methodologies.",
+      "Successfully concluded all OJT requirements with strong technical foundations in software design and production-ready programming."
+    ]
+  },
+  {
+    role: "Computer Engineering Student & Professional IT Candidate",
     company: "North Eastern Mindanao State University (NEMSU)",
     period: "2023 — Present",
     location: "Cantilan Campus, Surigao del Sur",
@@ -251,7 +262,7 @@ export const experienceData = [
     highlights: [
       "Completed rigorous coursework in Data Structures, Embedded Systems, Computer Networking (TCP/IP), and Operating Systems.",
       "Engineered multiple academic capstones including the Autonomous Firefighter Robot, ESP32 Controller, and Django E-Commerce app.",
-      "Actively preparing for industry internship / on-the-job training in software development, IT, and embedded systems."
+      "Successfully completed industry on-the-job training (OJT) in software development, advancing directly toward professional IT and engineering roles."
     ]
   },
   {

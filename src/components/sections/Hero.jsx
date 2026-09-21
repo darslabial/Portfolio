@@ -1,17 +1,20 @@
-import React from 'react';
-import { ArrowRight, Sparkles, ExternalLink, CheckCircle2, Download } from 'lucide-react';
+import { ArrowRight, ExternalLink, CheckCircle2, Download } from 'lucide-react';
 import { GithubIcon } from '../common/SocialIcons';
 import ClayButton from '../common/ClayButton';
 import TypewriterText from '../common/TypewriterText';
 import { personalInfo } from '../../data/portfolioData';
-import { audioFeedback } from '../../utils/audioFeedback';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 export default function Hero() {
+  // Explicitly register scroll reveal so this section doesn't depend on siblings
+  useScrollReveal();
+
   return (
     <section
       id="hero"
       className="section-wrapper"
       style={{
+        /* Extra top padding to clear the fixed navbar; overrides .section-wrapper default */
         paddingTop: '8.5rem',
         paddingBottom: '5rem',
         minHeight: '92vh',
@@ -20,17 +23,9 @@ export default function Hero() {
       }}
     >
       <div className="container">
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '4rem',
-            alignItems: 'center'
-          }}
-          className="hero-grid"
-        >
+        <div className="hero-grid">
           {/* Left Column: Headline, Bio & Action */}
-          <div style={{ maxWidth: '640px' }} className="reveal-on-scroll">
+          <div className="hero-intro-col reveal-on-scroll" style={{ maxWidth: '640px' }}>
             {/* Main Headline with Dynamic Typing */}
             <h1
               style={{
@@ -87,8 +82,7 @@ export default function Hero() {
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: '0.85rem',
-                marginBottom: '3.5rem'
+                gap: '0.85rem'
               }}
             >
               <ClayButton
@@ -126,54 +120,11 @@ export default function Hero() {
                 GitHub
               </ClayButton>
             </div>
-
-            {/* Real Stats Bar */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))',
-                gap: '1rem'
-              }}
-            >
-              {personalInfo.stats.map((stat, idx) => (
-                <div
-                  key={idx}
-                  className="clay-card-inset"
-                  style={{
-                    padding: '0.9rem 1rem',
-                    textAlign: 'center'
-                  }}
-                >
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: '1.55rem',
-                      fontWeight: 800,
-                      color: 'var(--accent-rose)',
-                      lineHeight: 1.1
-                    }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '0.72rem',
-                      color: 'var(--text-muted)',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                      marginTop: '0.25rem',
-                      fontFamily: 'var(--font-mono)'
-                    }}
-                  >
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* Right Column: Ultra-Clean, Large Profile Card (Zero Badges Overlapping) */}
+          {/* Right Column: Ultra-Clean, Large Profile Card */}
           <div
+            className="hero-profile-col"
             style={{
               position: 'relative',
               display: 'flex',
@@ -188,8 +139,8 @@ export default function Hero() {
             <div
               style={{
                 position: 'absolute',
-                width: '440px',
-                height: '440px',
+                width: 'clamp(280px, 80vw, 440px)',
+                height: 'clamp(280px, 80vw, 440px)',
                 borderRadius: '50%',
                 background: 'radial-gradient(circle, rgba(230, 40, 87, 0.32) 0%, rgba(156, 21, 53, 0.16) 50%, transparent 72%)',
                 filter: 'blur(45px)',
@@ -213,16 +164,17 @@ export default function Hero() {
                 border: '2px solid rgba(255, 140, 180, 0.28)',
                 zIndex: 2,
                 textAlign: 'center',
-                padding: '2.5rem 2rem',
-                position: 'relative'
+                padding: 'clamp(1.5rem, 3.5vw, 2.5rem) clamp(1rem, 2.5vw, 2rem)',
+                position: 'relative',
+                boxSizing: 'border-box'
               }}
             >
               {/* Profile Image Container - Large, Clean & Crisp */}
               <div
                 style={{
                   position: 'relative',
-                  width: '250px',
-                  height: '250px',
+                  width: 'clamp(190px, 50vw, 250px)',
+                  height: 'clamp(190px, 50vw, 250px)',
                   borderRadius: '50%',
                   padding: '6px',
                   background: 'linear-gradient(135deg, #ff477e 0%, #b81c45 50%, #20040e 100%)',
@@ -299,7 +251,6 @@ export default function Hero() {
                 href={personalInfo.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => audioFeedback.playPop()}
                 style={{
                   fontSize: '0.84rem',
                   fontFamily: 'var(--font-mono)',
@@ -361,16 +312,31 @@ export default function Hero() {
               </div>
             </div>
           </div>
+
+          {/* Stats Bar (Degree, Repositories, Target) */}
+          <div className="hero-stats-col reveal-on-scroll" style={{ width: '100%', maxWidth: '640px' }}>
+            <div className="hero-stats-grid">
+              {personalInfo.stats.map((stat, idx) => {
+                const isNumeric = /^\d/.test(stat.value);
+                return (
+                  <div
+                    key={idx}
+                    className="clay-card-inset hero-stat-card"
+                  >
+                    <div className="hero-stat-label">
+                      {stat.label}
+                    </div>
+                    <div className={`hero-stat-value ${isNumeric ? 'is-metric' : 'is-text'}`}>
+                      {stat.value}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
 
-      <style>{`
-        @media (min-width: 960px) {
-          .hero-grid {
-            grid-template-columns: 1.1fr 0.9fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

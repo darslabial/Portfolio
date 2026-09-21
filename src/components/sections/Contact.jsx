@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Mail, Copy, Check, Send, Sparkles, MessageSquare, Phone, Download, ExternalLink } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, TwitterIcon, FacebookIcon } from '../common/SocialIcons';
 import confetti from 'canvas-confetti';
 import ClayCard from '../common/ClayCard';
 import ClayButton from '../common/ClayButton';
 import { personalInfo } from '../../data/portfolioData';
-import { audioFeedback } from '../../utils/audioFeedback';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 export default function Contact() {
+  useScrollReveal();
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -19,7 +20,6 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleCopyEmail = () => {
-    audioFeedback.playSuccess();
     navigator.clipboard.writeText(personalInfo.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
@@ -33,7 +33,6 @@ export default function Contact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    audioFeedback.playSuccess();
     setIsSubmitting(true);
 
     setTimeout(() => {
@@ -59,9 +58,11 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section-wrapper">
+      <div className="section-divider" aria-hidden="true" />
+      <div className="section-ambient-glow" aria-hidden="true" />
       <div className="container">
         {/* Section Header */}
-        <div className="section-header">
+        <div className="section-header reveal-on-scroll">
           <span className="section-tag">
             <Sparkles size={13} /> Initiate Contact
           </span>
@@ -78,14 +79,14 @@ export default function Contact() {
             maxWidth: '1000px',
             margin: '0 auto',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2.5rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: '2rem'
           }}
         >
           {/* Left Column: Direct Connect & Info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <div className="reveal-on-scroll reveal-left" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {/* Quick Email Copy Clay Card */}
-            <ClayCard enableTilt={false} style={{ padding: '2rem' }}>
+            <ClayCard enableTilt={false} style={{ padding: 'clamp(1.25rem, 3vw, 2rem)' }}>
               <div
                 style={{
                   width: '52px',
@@ -228,7 +229,6 @@ export default function Contact() {
                   href={personalInfo.facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => audioFeedback.playPop()}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -269,17 +269,17 @@ export default function Contact() {
               </ClayButton>
 
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                Response time: Usually within 24 hours &bull; Available for OJT
+                Response time: Usually within 24 hours &bull; Available for Opportunities
               </div>
             </ClayCard>
 
             {/* Social Channels Clay Card */}
-            <ClayCard enableTilt={false} style={{ padding: '2rem' }}>
+            <ClayCard enableTilt={false} style={{ padding: 'clamp(1.25rem, 3vw, 2rem)' }}>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '1rem' }}>
                 Professional Networks &amp; Socials
               </h3>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '0.75rem' }}>
                 {personalInfo.socials.map((social) => {
                   let Icon = MessageSquare;
                   if (social.name === 'Facebook') Icon = FacebookIcon;
@@ -297,7 +297,7 @@ export default function Contact() {
                       target="_blank"
                       icon={Icon}
                       style={{
-                        padding: '0.7rem 1rem',
+                        padding: '0.7rem 0.85rem',
                         fontSize: '0.82rem',
                         justifyContent: 'flex-start'
                       }}
@@ -311,7 +311,11 @@ export default function Contact() {
           </div>
 
           {/* Right Column: Tactile Message Transmission Form */}
-          <ClayCard enableTilt={false} style={{ padding: '2.5rem' }}>
+          <ClayCard
+            enableTilt={false}
+            className="reveal-on-scroll reveal-right"
+            style={{ padding: 'clamp(1.25rem, 3vw, 2.25rem)' }}
+          >
             <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.4rem' }}>
               Transmit a Message
             </h3>
@@ -361,15 +365,7 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div>
-                  <label
-                    style={{
-                      display: 'block',
-                      fontSize: '0.82rem',
-                      fontFamily: 'var(--font-mono)',
-                      color: 'var(--text-secondary)',
-                      marginBottom: '0.4rem'
-                    }}
-                  >
+                  <label className="form-label">
                     YOUR NAME
                   </label>
                   <input
@@ -384,15 +380,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    style={{
-                      display: 'block',
-                      fontSize: '0.82rem',
-                      fontFamily: 'var(--font-mono)',
-                      color: 'var(--text-secondary)',
-                      marginBottom: '0.4rem'
-                    }}
-                  >
+                  <label className="form-label">
                     EMAIL ADDRESS
                   </label>
                   <input
@@ -407,15 +395,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    style={{
-                      display: 'block',
-                      fontSize: '0.82rem',
-                      fontFamily: 'var(--font-mono)',
-                      color: 'var(--text-secondary)',
-                      marginBottom: '0.4rem'
-                    }}
-                  >
+                  <label className="form-label">
                     INQUIRY SCOPE
                   </label>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -424,7 +404,6 @@ export default function Contact() {
                         key={type}
                         type="button"
                         onClick={() => {
-                          audioFeedback.playPop();
                           setFormData({ ...formData, projectType: type });
                         }}
                         className={`clay-pill ${formData.projectType === type ? 'active' : ''}`}
@@ -442,15 +421,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    style={{
-                      display: 'block',
-                      fontSize: '0.82rem',
-                      fontFamily: 'var(--font-mono)',
-                      color: 'var(--text-secondary)',
-                      marginBottom: '0.4rem'
-                    }}
-                  >
+                  <label className="form-label">
                     MESSAGE / PROJECT BRIEF
                   </label>
                   <textarea

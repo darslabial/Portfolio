@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * TechLogo
  * Renders authentic, high-fidelity SVG logos for programming languages,

@@ -1,28 +1,39 @@
-import React, { useState } from 'react';
-import { ExternalLink, Sparkles, X, CheckCircle2, ArrowUpRight, FolderGit2, Star } from 'lucide-react';
+import { useState } from 'react';
+import { X, CheckCircle2, ArrowUpRight, FolderGit2 } from 'lucide-react';
 import { GithubIcon } from '../common/SocialIcons';
 import ClayCard from '../common/ClayCard';
 import ClayButton from '../common/ClayButton';
 import { projectsData } from '../../data/portfolioData';
-import { audioFeedback } from '../../utils/audioFeedback';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 export default function Projects() {
   const [activeCaseStudy, setActiveCaseStudy] = useState(null);
   useScrollReveal();
 
+  // Shared style for modal section headers (Challenge / Solution / Impact)
+  const modalSectionHeadStyle = {
+    fontFamily: 'var(--font-display)',
+    fontWeight: 700,
+    fontSize: '1rem',
+    color: 'var(--text-primary)',
+    marginBottom: '0.4rem',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem'
+  };
+
   const openModal = (project) => {
-    audioFeedback.playPop();
     setActiveCaseStudy(project);
   };
 
   const closeModal = () => {
-    audioFeedback.playPress();
     setActiveCaseStudy(null);
   };
 
   return (
     <section id="projects" className="section-wrapper">
+      <div className="section-divider" aria-hidden="true" />
+      <div className="section-ambient-glow" aria-hidden="true" />
       <div className="container">
         {/* Section Heading */}
         <div className="section-header reveal-on-scroll">
@@ -41,8 +52,8 @@ export default function Projects() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
-            gap: '2.5rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: '2rem'
           }}
         >
           {projectsData.map((project, idx) => (
@@ -362,18 +373,7 @@ export default function Projects() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {/* Challenge */}
               <div className="clay-card-inset" style={{ padding: '1.25rem' }}>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: 700,
-                    fontSize: '1rem',
-                    color: 'var(--text-primary)',
-                    marginBottom: '0.4rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem'
-                  }}
-                >
+                <div style={modalSectionHeadStyle}>
                   <span style={{ color: 'var(--accent-amber)' }}>●</span> The Technical Problem
                 </div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
@@ -383,18 +383,7 @@ export default function Projects() {
 
               {/* Solution */}
               <div className="clay-card-inset" style={{ padding: '1.25rem' }}>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: 700,
-                    fontSize: '1rem',
-                    color: 'var(--text-primary)',
-                    marginBottom: '0.4rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem'
-                  }}
-                >
+                <div style={modalSectionHeadStyle}>
                   <span style={{ color: 'var(--accent-cyan)' }}>●</span> System Design &amp; Architecture
                 </div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
@@ -404,18 +393,7 @@ export default function Projects() {
 
               {/* Impact */}
               <div className="clay-card-inset" style={{ padding: '1.25rem' }}>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: 700,
-                    fontSize: '1rem',
-                    color: 'var(--text-primary)',
-                    marginBottom: '0.4rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem'
-                  }}
-                >
+                <div style={modalSectionHeadStyle}>
                   <CheckCircle2 size={16} color="var(--accent-rose)" /> Practical Results &amp; Utility
                 </div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>

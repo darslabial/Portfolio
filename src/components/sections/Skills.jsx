@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Code2, Terminal, Cpu, Network, Database, Award, Sparkles, Download, FileText, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
+import { Code2, Terminal, Cpu, Network, Database, Award, Sparkles, Download, FileText } from 'lucide-react';
 import ClayCard from '../common/ClayCard';
+import ClayButton from '../common/ClayButton';
 import TechLogo from '../common/TechLogos';
 import { skillsData } from '../../data/portfolioData';
-import { audioFeedback } from '../../utils/audioFeedback';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 export default function Skills() {
@@ -30,6 +30,8 @@ export default function Skills() {
 
   return (
     <section id="skills" className="section-wrapper">
+      <div className="section-divider" aria-hidden="true" />
+      <div className="section-ambient-glow" aria-hidden="true" />
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal-on-scroll">
@@ -65,28 +67,15 @@ export default function Skills() {
                 Aligned with <strong style={{ color: '#fff' }}>Daryl C. Labial's Resume (BSCpE)</strong>
               </span>
             </div>
-            <a
+            <ClayButton
+              variant="primary"
               href="/Daryl_Labial_Resume.pdf"
               download="Daryl_Labial_Resume.pdf"
-              onClick={() => audioFeedback.playTone(600, 'sine', 0.1)}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                fontSize: '0.78rem',
-                fontWeight: 700,
-                color: '#fff',
-                background: 'linear-gradient(135deg, #e62857 0%, #9c1535 100%)',
-                padding: '0.32rem 0.85rem',
-                borderRadius: '9999px',
-                textDecoration: 'none',
-                boxShadow: '0 2px 8px rgba(230,40,87,0.4)',
-                transition: 'all 0.2s ease'
-              }}
+              icon={Download}
+              style={{ fontSize: '0.78rem', padding: '0.32rem 0.85rem' }}
             >
-              <Download size={13} />
-              <span>Download PDF</span>
-            </a>
+              Download PDF
+            </ClayButton>
           </div>
         </div>
 
@@ -94,8 +83,8 @@ export default function Skills() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '1.75rem'
           }}
         >
           {skillsData.map((category, catIdx) => {
@@ -110,7 +99,7 @@ export default function Skills() {
                 <ClayCard
                   enableTilt={false}
                   style={{
-                    padding: '2rem 1.75rem',
+                    padding: 'clamp(1.25rem, 3vw, 2rem) clamp(1rem, 2.5vw, 1.75rem)',
                     display: 'flex',
                     flexDirection: 'column',
                     height: '100%'
@@ -169,10 +158,7 @@ export default function Skills() {
                     return (
                       <div
                         key={skill.name}
-                        onMouseEnter={() => {
-                          audioFeedback.playPop();
-                          setHoveredSkill(skill.name);
-                        }}
+                        onMouseEnter={() => setHoveredSkill(skill.name)}
                         onMouseLeave={() => setHoveredSkill(null)}
                         className="clay-card-inset"
                         style={{

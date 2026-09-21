@@ -1,6 +1,3 @@
-import React from 'react';
-import { audioFeedback } from '../../utils/audioFeedback';
-
 /**
  * ClayCard
  * Pure, high-performance claymorphic card container with static dual-direction
@@ -9,26 +6,19 @@ import { audioFeedback } from '../../utils/audioFeedback';
 export default function ClayCard({
   children,
   className = '',
-  enableTilt = false,
+  enableTilt: _enableTilt = false,
   inset = false,
   onClick,
   style = {},
   ...props
 }) {
-  const handleClick = (e) => {
-    if (onClick) {
-      audioFeedback.playPop();
-      onClick(e);
-    }
-  };
-
   const baseClass = inset ? 'clay-card-inset' : 'clay-card';
   const clickableClass = onClick ? 'clay-card-clickable' : '';
 
   return (
     <div
       className={`${baseClass} ${clickableClass} ${className}`.trim()}
-      onClick={handleClick}
+      onClick={onClick}
       style={style}
       {...props}
     >

@@ -1,6 +1,3 @@
-import React from 'react';
-import { audioFeedback } from '../../utils/audioFeedback';
-
 export default function ClayButton({
   children,
   variant = 'primary', // 'primary' | 'secondary' | 'inset'
@@ -17,14 +14,7 @@ export default function ClayButton({
 }) {
   const handleClick = (e) => {
     if (disabled) return;
-    audioFeedback.playPress();
     if (onClick) onClick(e);
-  };
-
-  const handleMouseEnter = () => {
-    if (!disabled) {
-      audioFeedback.playPop();
-    }
   };
 
   const variantClass = 
@@ -52,7 +42,6 @@ export default function ClayButton({
         rel={target === '_blank' ? (rel || 'noopener noreferrer') : rel}
         className={combinedClass}
         onClick={handleClick}
-        onMouseEnter={handleMouseEnter}
         {...props}
       >
         {content}
@@ -65,7 +54,6 @@ export default function ClayButton({
       type="button"
       className={combinedClass}
       onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
       disabled={disabled}
       {...props}
     >

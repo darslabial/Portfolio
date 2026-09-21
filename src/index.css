@@ -104,6 +104,12 @@ button {
   padding: 0 1.5rem;
 }
 
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
 .section-wrapper {
   padding: 6.5rem 0;
   position: relative;
