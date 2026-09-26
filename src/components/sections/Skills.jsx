@@ -56,15 +56,15 @@ export default function Skills() {
               marginTop: '1.25rem',
               padding: '0.65rem 1.25rem',
               borderRadius: '9999px',
-              background: '#19060f',
-              border: '1px solid rgba(255, 77, 122, 0.25)',
-              boxShadow: 'inset 1px 1px 3px rgba(0,0,0,0.6)'
+              background: 'var(--bg-card-inset)',
+              border: '1px solid var(--border-subtle)',
+              boxShadow: 'var(--clay-shadow-inset)'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
               <FileText size={15} color="var(--accent-rose)" />
               <span style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
-                Aligned with <strong style={{ color: '#fff' }}>Daryl C. Labial's Resume (BSCpE)</strong>
+                Aligned with <strong style={{ color: 'var(--text-primary)' }}>Daryl C. Labial's Resume (BSCpE)</strong>
               </span>
             </div>
             <ClayButton
@@ -192,13 +192,13 @@ export default function Skills() {
                                 width: '28px',
                                 height: '28px',
                                 borderRadius: '8px',
-                                background: '#14030a',
-                                border: '1px solid rgba(255, 100, 140, 0.18)',
+                                background: 'var(--bg-card-inset)',
+                                border: '1px solid var(--border-subtle)',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 flexShrink: 0,
-                                boxShadow: 'inset 1px 1px 2px rgba(0,0,0,0.7)'
+                                boxShadow: 'var(--clay-shadow-inset)'
                               }}
                             >
                               <TechLogo name={skill.name} size={17} />
@@ -207,7 +207,7 @@ export default function Skills() {
                               style={{
                                 fontSize: '0.88rem',
                                 fontWeight: 600,
-                                color: isHovered ? '#fff' : 'var(--text-primary)',
+                                color: isHovered ? 'var(--accent-rose)' : 'var(--text-primary)',
                                 whiteSpace: 'nowrap',
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis'
@@ -230,7 +230,7 @@ export default function Skills() {
                                 fontSize: '0.7rem',
                                 fontFamily: 'var(--font-mono)',
                                 color: 'var(--text-secondary)',
-                                background: 'rgba(255, 255, 255, 0.05)',
+                                background: 'var(--badge-bg)',
                                 padding: '0.15rem 0.45rem',
                                 borderRadius: '4px',
                                 whiteSpace: 'nowrap'
@@ -260,10 +260,10 @@ export default function Skills() {
                           style={{
                             width: '100%',
                             height: '6px',
-                            background: '#0d0206',
+                            background: 'var(--progress-track-bg)',
                             borderRadius: '999px',
                             overflow: 'hidden',
-                            boxShadow: 'inset 1px 1px 2px rgba(0,0,0,0.9)'
+                            boxShadow: 'inset 1px 1px 2px rgba(0,0,0,0.4)'
                           }}
                         >
                           <div

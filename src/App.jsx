@@ -1,4 +1,5 @@
 import './App.css';
+import { ThemeProvider } from './context/ThemeContext';
 import ScrollProgressBar from './components/common/ScrollProgressBar';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
@@ -13,17 +14,19 @@ export default function App() {
   useScrollReveal();
 
   return (
-    <div className="portfolio-root">
-      <ScrollProgressBar />
-      <Navbar />
-      <main id="main-content">
-        <Hero />
-        <Projects />
-        <Skills />
-        <Experience />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="portfolio-root">
+        <ScrollProgressBar />
+        <Navbar />
+        <main id="main-content">
+          <Hero />
+          <Projects />
+          <Skills />
+          <Experience />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }

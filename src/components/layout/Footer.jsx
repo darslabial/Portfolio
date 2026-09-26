@@ -30,8 +30,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        borderTop: '1px solid rgba(255, 100, 140, 0.12)',
-        background: 'linear-gradient(180deg, #0d0206 0%, #080103 100%)',
+        borderTop: '1px solid var(--border-subtle)',
+        background: 'var(--footer-bg)',
         padding: '3.5rem 0 2.5rem 0',
         marginTop: '4rem',
         position: 'relative'
@@ -46,7 +46,7 @@ export default function Footer() {
             alignItems: 'center',
             gap: '2rem',
             paddingBottom: '2.5rem',
-            borderBottom: '1px solid rgba(255, 100, 140, 0.08)'
+            borderBottom: '1px solid var(--border-subtle)'
           }}
         >
           {/* Brand & Tagline */}
@@ -63,7 +63,7 @@ export default function Footer() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   overflow: 'hidden',
-                  boxShadow: '0 3px 8px rgba(0,0,0,0.6)'
+                  boxShadow: 'var(--clay-shadow-button)'
                 }}
               >
                 <img
@@ -82,7 +82,7 @@ export default function Footer() {
                   fontFamily: 'var(--font-display)',
                   fontWeight: 800,
                   fontSize: '1.2rem',
-                  color: '#fff'
+                  color: 'var(--text-primary)'
                 }}
               >
                 {personalInfo.name} {personalInfo.surname}

@@ -141,13 +141,14 @@ export default function Contact() {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.4rem',
-                    background: copied ? 'var(--accent-rose)' : '#260a15',
-                    color: '#fff',
-                    border: '1px solid rgba(255, 120, 160, 0.25)',
+                    background: copied ? 'var(--accent-rose)' : 'var(--bg-card-inset)',
+                    color: copied ? '#fff' : 'var(--text-primary)',
+                    border: '1px solid var(--border-subtle)',
                     padding: '0.4rem 0.8rem',
                     borderRadius: '8px',
                     fontSize: '0.78rem',
                     cursor: 'pointer',
+                    boxShadow: 'var(--clay-shadow-button)',
                     transition: 'all 0.2s ease'
                   }}
                 >
@@ -409,8 +410,8 @@ export default function Contact() {
                         className={`clay-pill ${formData.projectType === type ? 'active' : ''}`}
                         style={{
                           cursor: 'pointer',
-                          background: formData.projectType === type ? '#3b1021' : '#19060f',
-                          borderColor: formData.projectType === type ? 'var(--accent-rose)' : 'rgba(255, 100, 140, 0.15)',
+                          background: formData.projectType === type ? 'var(--accent-rose)' : 'var(--bg-card-inset)',
+                          borderColor: formData.projectType === type ? 'var(--accent-rose)' : 'var(--border-subtle)',
                           color: formData.projectType === type ? '#fff' : 'var(--text-secondary)'
                         }}
                       >

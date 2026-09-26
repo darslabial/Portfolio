@@ -78,7 +78,7 @@ export default function Projects() {
                   aspectRatio: '16 / 9',
                   borderRadius: '20px 20px 0 0',
                   overflow: 'hidden',
-                  background: '#120409'
+                  background: 'var(--bg-card-inset)'
                 }}
               >
                 <img
@@ -99,15 +99,15 @@ export default function Projects() {
                     position: 'absolute',
                     top: '1rem',
                     right: '1rem',
-                    background: 'rgba(16, 4, 9, 0.85)',
+                    background: 'var(--card-overlay-bg)',
                     backdropFilter: 'blur(8px)',
                     padding: '0.35rem 0.85rem',
                     borderRadius: '999px',
                     fontSize: '0.75rem',
                     fontFamily: 'var(--font-mono)',
                     color: 'var(--accent-rose)',
-                    border: '1px solid rgba(255, 100, 140, 0.25)',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.5)'
+                    border: '1px solid var(--border-subtle)',
+                    boxShadow: 'var(--clay-shadow-pill)'
                   }}
                 >
                   {project.category}
@@ -119,17 +119,17 @@ export default function Projects() {
                     position: 'absolute',
                     bottom: '0.8rem',
                     left: '1rem',
-                    background: 'rgba(10, 2, 5, 0.8)',
+                    background: 'var(--card-overlay-bg)',
                     backdropFilter: 'blur(6px)',
                     padding: '0.25rem 0.7rem',
                     borderRadius: '6px',
                     fontSize: '0.72rem',
                     fontFamily: 'var(--font-mono)',
-                    color: '#fff',
+                    color: 'var(--text-primary)',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.35rem',
-                    border: project.platform === 'gitea' ? '1px solid rgba(255, 77, 122, 0.4)' : '1px solid rgba(255, 100, 140, 0.2)'
+                    border: '1px solid var(--border-subtle)'
                   }}
                 >
                   {project.platform === 'gitea' ? (
@@ -230,9 +230,9 @@ export default function Projects() {
                         fontFamily: 'var(--font-mono)',
                         padding: '0.2rem 0.6rem',
                         borderRadius: '6px',
-                        background: '#19060f',
+                        background: 'var(--bg-card-inset)',
                         color: 'var(--text-secondary)',
-                        border: '1px solid rgba(255, 100, 140, 0.12)'
+                        border: '1px solid var(--border-subtle)'
                       }}
                     >
                       {tag}
@@ -284,7 +284,7 @@ export default function Projects() {
             position: 'fixed',
             inset: 0,
             zIndex: 150,
-            background: 'rgba(10, 2, 5, 0.85)',
+            background: 'rgba(0, 0, 0, 0.65)',
             backdropFilter: 'blur(16px)',
             display: 'flex',
             alignItems: 'center',
@@ -302,9 +302,9 @@ export default function Projects() {
               overflowY: 'auto',
               padding: '2.5rem',
               position: 'relative',
-              background: 'linear-gradient(135deg, #2d0e1b 0%, #1a0610 100%)',
-              border: '1px solid rgba(255, 140, 180, 0.3)',
-              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.9), inset 2px 2px 4px rgba(255, 160, 200, 0.3)'
+              background: 'linear-gradient(135deg, var(--bg-card-elevated) 0%, var(--bg-card) 100%)',
+              border: '1px solid var(--border-card)',
+              boxShadow: 'var(--clay-shadow-card-hover)'
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -319,13 +319,14 @@ export default function Projects() {
                 width: '36px',
                 height: '36px',
                 borderRadius: '50%',
-                background: '#1a060f',
-                border: '1px solid rgba(255, 100, 140, 0.2)',
-                color: '#fff',
+                background: 'var(--button-secondary-bg)',
+                border: '1px solid var(--border-subtle)',
+                color: 'var(--text-primary)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                boxShadow: 'var(--clay-shadow-button)'
               }}
             >
               <X size={18} />

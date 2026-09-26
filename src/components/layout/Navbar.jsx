@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { Menu, X, Sparkles, Send, Download } from 'lucide-react';
 import { GithubIcon } from '../common/SocialIcons';
 import ClayButton from '../common/ClayButton';
+import ThemeToggle from '../common/ThemeToggle';
 import { personalInfo } from '../../data/portfolioData';
 
 export default function Navbar() {
@@ -9,10 +10,58 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef(null);
+  const navMenuRef = useRef(null);
+  const isClickScrollingRef = useRef(false);
+  const clickTimeoutRef = useRef(null);
+  const [indicatorStyle, setIndicatorStyle] = useState({
+    left: 0,
+    top: 0,
+    width: 0,
+    height: 0,
+    opacity: 0
+  });
+
+  // Calculate and update sliding indicator pill dimensions and position
+  const updateIndicator = () => {
+    if (navMenuRef.current) {
+      const activeEl = navMenuRef.current.querySelector(`[data-id="${activeSection}"]`);
+      if (activeEl) {
+        setIndicatorStyle({
+          left: activeEl.offsetLeft,
+          top: activeEl.offsetTop,
+          width: activeEl.offsetWidth,
+          height: activeEl.offsetHeight,
+          opacity: 1
+        });
+      }
+    }
+  };
+
+  useLayoutEffect(() => {
+    updateIndicator();
+  }, [activeSection]);
+
+  useEffect(() => {
+    window.addEventListener('resize', updateIndicator);
+    const timer = setTimeout(updateIndicator, 150);
+    return () => {
+      window.removeEventListener('resize', updateIndicator);
+      clearTimeout(timer);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40);
+
+      // If user recently clicked a nav item, do not let intermediate scroll events override active section
+      if (isClickScrollingRef.current) return;
+
+      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
+      if (isBottom) {
+        setActiveSection('contact');
+        return;
+      }
 
       const sections = ['hero', 'projects', 'skills', 'experience', 'contact'];
       const scrollPos = window.scrollY + 200;
@@ -28,6 +77,10 @@ export default function Navbar() {
           }
         }
       }
+    };
+
+    const handleUserScroll = () => {
+      isClickScrollingRef.current = false;
     };
 
     const handleResize = () => {
@@ -49,12 +102,16 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('wheel', handleUserScroll, { passive: true });
+    window.addEventListener('touchmove', handleUserScroll, { passive: true });
     window.addEventListener('resize', handleResize);
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleKeyDown);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('wheel', handleUserScroll);
+      window.removeEventListener('touchmove', handleUserScroll);
       window.removeEventListener('resize', handleResize);
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
@@ -72,6 +129,15 @@ export default function Navbar() {
   const handleNavClick = (id) => {
     setActiveSection(id);
     setIsMobileMenuOpen(false);
+
+    // Lock indicator to target section while smooth scrolling traverses the page
+    isClickScrollingRef.current = true;
+    if (clickTimeoutRef.current) {
+      clearTimeout(clickTimeoutRef.current);
+    }
+    clickTimeoutRef.current = setTimeout(() => {
+      isClickScrollingRef.current = false;
+    }, 850);
   };
 
   return (
@@ -80,8 +146,8 @@ export default function Navbar() {
         className="clay-dock navbar-dock"
         style={{
           boxShadow: isScrolled
-            ? '0 20px 48px rgba(0,0,0,0.85), inset 1px 1px 2px rgba(255,160,200,0.35)'
-            : '0 12px 32px rgba(0,0,0,0.6), inset 1px 1px 2px rgba(255,160,200,0.18)'
+            ? 'var(--clay-shadow-card-hover)'
+            : 'var(--clay-shadow-card)'
         }}
       >
         {/* Daryl's Profile Avatar & Brand */}
@@ -113,8 +179,8 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Desktop Links */}
-        <div className="desktop-nav-menu">
+        {/* Desktop Links with Smooth Sliding Indicator Pill */}
+        <div className="desktop-nav-menu" ref={navMenuRef}>
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -123,28 +189,34 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => handleNavClick(link.id)}
                 className="desktop-nav-link"
+                data-id={link.id}
                 style={{
                   fontWeight: isActive ? 600 : 500,
-                  color: isActive ? '#ffffff' : 'var(--text-secondary)',
-                  background: isActive
-                    ? 'linear-gradient(135deg, #381121 0%, #200812 100%)'
-                    : 'transparent',
-                  boxShadow: isActive
-                    ? '3px 4px 10px rgba(0,0,0,0.5), inset 1px 1px 2px rgba(255,140,180,0.25), inset -1px -1px 2px rgba(0,0,0,0.4)'
-                    : 'none',
-                  border: isActive
-                    ? '1px solid rgba(255,120,160,0.25)'
-                    : '1px solid transparent'
+                  color: isActive ? 'var(--nav-active-color)' : 'var(--text-secondary)'
                 }}
               >
                 {link.label}
               </a>
             );
           })}
+          <span
+            className="desktop-nav-indicator"
+            style={{
+              left: indicatorStyle.left,
+              top: indicatorStyle.top,
+              width: indicatorStyle.width,
+              height: indicatorStyle.height,
+              opacity: indicatorStyle.opacity
+            }}
+            aria-hidden="true"
+          />
         </div>
 
         {/* Action Controls */}
         <div className="navbar-actions">
+          {/* Animated Mode Toggle Button */}
+          <ThemeToggle />
+
           {/* GitHub Quick Link */}
           <a
             href={personalInfo.githubUrl}
@@ -213,6 +285,25 @@ export default function Navbar() {
               <span>Get In Touch</span>
               <Send size={14} color="var(--accent-rose)" />
             </a>
+
+            {/* Mobile Theme Toggle Row */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '0.65rem 1rem',
+                borderRadius: '12px',
+                background: 'var(--bg-card-inset)',
+                border: '1px solid var(--border-subtle)',
+                marginTop: '0.15rem'
+              }}
+            >
+              <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+                Theme Appearance
+              </span>
+              <ThemeToggle showLabel={true} />
+            </div>
 
             {/* Mobile Download Resume */}
             <ClayButton

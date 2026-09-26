@@ -65,7 +65,7 @@ export default function Hero() {
                 maxWidth: '560px'
               }}
             >
-              I’m <strong style={{ color: '#fff', fontWeight: 700 }}>{personalInfo.name} {personalInfo.surname}</strong> (
+              I’m <strong style={{ color: 'var(--text-primary)', fontWeight: 700 }}>{personalInfo.name} {personalInfo.surname}</strong> (
               <a
                 href={personalInfo.githubUrl}
                 target="_blank"
@@ -102,9 +102,7 @@ export default function Hero() {
                 icon={Download}
                 style={{
                   fontSize: '1rem',
-                  padding: '0.85rem 1.8rem',
-                  borderColor: 'rgba(255, 77, 122, 0.4)',
-                  background: 'linear-gradient(135deg, #381223 0%, #200812 100%)'
+                  padding: '0.85rem 1.8rem'
                 }}
               >
                 Download Resume (PDF)
@@ -158,10 +156,9 @@ export default function Hero() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                background: 'linear-gradient(145deg, #341020 0%, #19050f 100%)',
-                boxShadow: 
-                  '18px 26px 56px rgba(0,0,0,0.85), -6px -6px 22px rgba(255,100,150,0.08), inset 2px 2px 4px rgba(255,160,200,0.35), inset -4px -4px 8px rgba(0,0,0,0.65)',
-                border: '2px solid rgba(255, 140, 180, 0.28)',
+                background: 'var(--hero-card-bg)',
+                boxShadow: 'var(--hero-card-shadow)',
+                border: '2px solid var(--hero-card-border)',
                 zIndex: 2,
                 textAlign: 'center',
                 padding: 'clamp(1.5rem, 3.5vw, 2.5rem) clamp(1rem, 2.5vw, 2rem)',
@@ -223,7 +220,7 @@ export default function Hero() {
                     fontFamily: 'var(--font-display)',
                     fontWeight: 800,
                     fontSize: '1.7rem',
-                    color: '#fff',
+                    color: 'var(--text-primary)',
                     letterSpacing: '-0.02em',
                     lineHeight: 1.1
                   }}
@@ -255,23 +252,21 @@ export default function Hero() {
                   fontSize: '0.84rem',
                   fontFamily: 'var(--font-mono)',
                   color: 'var(--accent-rose)',
-                  background: 'rgba(230,40,87,0.12)',
+                  background: 'var(--badge-bg)',
                   padding: '0.5rem 1.25rem',
                   borderRadius: '999px',
-                  border: '1px solid rgba(230,40,87,0.3)',
+                  border: '1px solid var(--border-subtle)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
                   textDecoration: 'none',
                   transition: 'all 0.2s ease',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.4)'
+                  boxShadow: 'var(--clay-shadow-pill)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(230,40,87,0.25)';
                   e.currentTarget.style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(230,40,87,0.12)';
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
@@ -289,7 +284,7 @@ export default function Hero() {
                   gap: '0.45rem',
                   marginTop: '1.4rem',
                   paddingTop: '1.1rem',
-                  borderTop: '1px solid rgba(255, 100, 140, 0.12)',
+                  borderTop: '1px solid var(--border-subtle)',
                   width: '100%'
                 }}
               >
@@ -301,9 +296,9 @@ export default function Hero() {
                       fontFamily: 'var(--font-mono)',
                       padding: '0.22rem 0.65rem',
                       borderRadius: '6px',
-                      background: '#1a0610',
+                      background: 'var(--bg-card-inset)',
                       color: 'var(--text-secondary)',
-                      border: '1px solid rgba(255, 100, 140, 0.12)'
+                      border: '1px solid var(--border-subtle)'
                     }}
                   >
                     {item}

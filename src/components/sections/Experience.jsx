@@ -168,9 +168,9 @@ export default function Experience() {
           enableTilt={false}
           style={{
             padding: 'clamp(1.5rem, 3.5vw, 2.5rem)',
-            background: 'linear-gradient(135deg, #351022 0%, #1b0610 100%)',
-            border: '2px solid rgba(255, 140, 180, 0.3)',
-            boxShadow: '0 16px 40px rgba(0,0,0,0.8), inset 2px 2px 4px rgba(255,160,200,0.35)',
+            background: 'var(--hero-card-bg)',
+            border: '2px solid var(--hero-card-border)',
+            boxShadow: 'var(--hero-card-shadow)',
             width: '100%',
             boxSizing: 'border-box'
           }}
@@ -198,7 +198,7 @@ export default function Experience() {
               fontWeight: 800,
               marginBottom: '0.4rem',
               lineHeight: 1.25,
-              color: '#fff',
+              color: 'var(--text-primary)',
               letterSpacing: '-0.01em'
             }}
           >
@@ -265,9 +265,9 @@ export default function Experience() {
                       fontFamily: 'var(--font-mono)',
                       padding: '0.3rem 0.72rem',
                       borderRadius: '7px',
-                      background: '#19060f',
+                      background: 'var(--bg-card-inset)',
                       color: 'var(--text-secondary)',
-                      border: '1px solid rgba(255, 100, 140, 0.16)',
+                      border: '1px solid var(--border-subtle)',
                       lineHeight: 1.4
                     }}
                   >
@@ -379,9 +379,9 @@ export default function Experience() {
                       width: '44px',
                       height: '44px',
                       borderRadius: '50%',
-                      background: 'linear-gradient(135deg, #401323 0%, #1e0711 100%)',
-                      border: '1px solid rgba(255, 120, 160, 0.3)',
-                      boxShadow: '0 4px 10px rgba(0,0,0,0.5), inset 1px 1px 2px rgba(255,160,200,0.25)',
+                      background: 'var(--button-secondary-bg)',
+                      border: '1px solid var(--border-subtle)',
+                      boxShadow: 'var(--clay-shadow-button)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -393,7 +393,7 @@ export default function Experience() {
                     {item.avatarInitials}
                   </div>
                   <div>
-                    <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#fff' }}>
+                    <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-primary)' }}>
                       {item.author}
                     </div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
